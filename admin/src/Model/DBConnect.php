@@ -24,7 +24,6 @@ class DBConnect
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
-
     }
     
 }
