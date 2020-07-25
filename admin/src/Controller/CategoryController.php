@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controller;
 
 use App\Model\CategoryManager;
@@ -14,7 +15,7 @@ class CategoryController
 
     public function getAllCategory()
     {
-            $categories = $this->categoryController->getAllCategory();
-            include ('src/View/category/list.php');
+        $categories = $this->categoryController->getAllCategory();
+        include('../src/View/category/list.php');
     }
 }
