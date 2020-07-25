@@ -37,4 +37,23 @@ class CategoryManager
         $stmt->execute();
     }
 
+    public function getCategoryId($id)
+    {
+        $sql = "SELECT * FROM `tbl_categories` WHERE id =:id";
+        $stmt= $this->database->prepare($sql);
+        $stmt->bindParam(':id',$id);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
+    public function updateCategory($category)
+    {
+        $sql = "UPDATE `tbl_categories` SET `name`=:name,`country`=:country WHERE id =:id ";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':id',$category->getId());
+        $stmt->bindParam(':name',$category->getName());
+        $stmt->bindParam(':country',$category->getCountry());
+        $stmt->execute();
+    }
+
 }
