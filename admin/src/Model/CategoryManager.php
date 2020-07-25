@@ -28,4 +28,13 @@ class CategoryManager
         return $categories;
     }
 
+    public function addCategory($category)
+    {
+        $sql = "INSERT INTO `tbl_categories`( `name`, `country`) VALUES (:name,:country)";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':name',$category->getName());
+        $stmt->bindParam(':country',$category->getCountry());
+        $stmt->execute();
+    }
+
 }
