@@ -34,6 +34,9 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : "";
     case 'update-category':
         $categories->updateCategory();
         break;
+    case 'delete-category':
+        $categories->deleteCategory();
+        break;
     default:
         $categories->getAllCategory();;
         break;
