@@ -49,4 +49,13 @@ class CategoryController
             header("location:index.php");
         }
     }
+
+    public function deleteCategory()
+    {
+        if ($_SERVER['REQUEST_METHOD']=='GET'){
+            $id = $_REQUEST['id'];
+            $this->categoryController->deleteCategory($id);
+            header("location:index.php");
+        }
+    }
 }

@@ -56,4 +56,12 @@ class CategoryManager
         $stmt->execute();
     }
 
+    public function deleteCategory($id)
+    {
+        $sql = "DELETE FROM `tbl_categories` WHERE id =:id";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(":id",$id);
+        $stmt->execute();
+    }
+
 }
