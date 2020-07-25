@@ -1,10 +1,12 @@
 <?php
 
 use App\Controller\CategoryController;
+use App\Controller\ProductController;
 
 require __DIR__ . "/../vendor/autoload.php";
 
 $categories = new CategoryController();
+$products = new ProductController();
 
 $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : "";
 ?>
@@ -37,9 +39,11 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : "";
     case 'delete-category':
         $categories->deleteCategory();
         break;
-    default:
-        $categories->getAllCategory();;
+    case 'list-product':
+        $products->getAllProduct();
         break;
+    default:
+        $products->getAllProduct();
 } ?>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
