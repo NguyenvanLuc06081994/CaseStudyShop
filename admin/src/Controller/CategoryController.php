@@ -11,4 +11,10 @@ class CategoryController
     {
         $this->categoryController = new CategoryManager();
     }
+
+    public function getAllCategory()
+    {
+            $categories = $this->categoryController->getAllCategory();
+            include ('src/View/category/list.php');
+    }
 }
