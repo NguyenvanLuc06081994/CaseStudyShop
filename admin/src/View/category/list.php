@@ -1,5 +1,5 @@
-<a href="index.php?page=add-category">ADD NEW CATEGORY</a>
-<table>
+<a href="index.php?page=add-category" class="btn btn-primary mt-3 mb-3" >ADD NEW CATEGORY</a>
+<table class="table table-hover">
     <tr>
         <th>STT</th>
         <th>Name</th>
@@ -16,8 +16,8 @@
                 <td><?php echo ++$key?></td>
                 <td><?php echo $category->getName()?></td>
                 <td><?php echo $category->getCountry()?></td>
-                <td><a href="index.php?page=update-category&id=<?php echo $category->getId() ?>">Update</a></td>
-                <td><a href="index.php?page=delete-category&id=<?php echo $category->getId() ?>">Delete</a></td>
+                <td><a href="index.php?page=update-category&id=<?php echo $category->getId() ?>" class="btn btn-primary">Update</a></td>
+                <td><a href="index.php?page=delete-category&id=<?php echo $category->getId() ?>" class="btn btn-danger">Delete</a></td>
             </tr>
         <?php endforeach; ?>
         <?php endif; ?>
