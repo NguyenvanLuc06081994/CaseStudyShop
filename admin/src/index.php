@@ -31,6 +31,9 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : "";
     case 'add-category':
         $categories->addCategory();
         break;
+    case 'update-category':
+        $categories->updateCategory();
+        break;
     default:
         $categories->getAllCategory();;
         break;
