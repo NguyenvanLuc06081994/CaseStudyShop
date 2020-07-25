@@ -1,4 +1,4 @@
-
+<a href="index.php?page=add-category">ADD NEW CATEGORY</a>
 <table>
     <tr>
         <th>STT</th>

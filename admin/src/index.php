@@ -28,6 +28,9 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : "";
     case "list-category":
         $categories->getAllCategory();
         break;
+    case 'add-category':
+        $categories->addCategory();
+        break;
     default:
         $categories->getAllCategory();;
         break;
