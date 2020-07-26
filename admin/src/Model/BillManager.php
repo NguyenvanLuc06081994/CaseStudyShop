@@ -48,4 +48,15 @@ INNER JOIN tbl_customers on tbl_bills.customer_id = tbl_customers.id Where tbl_b
         $stmt->bindParam(':id', $id);
         $stmt->execute();
     }
+
+    public function addBill($bill)
+    {
+        $sql = "INSERT INTO `tbl_bills`( `date`, `status`, `totalPrice`, `customer_id`) VALUES (:date, :status , :totalPrice, :customer_id)";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':date', $bill->getDate());
+        $stmt->bindParam(':status', $bill->getStatus());
+        $stmt->bindParam(':totalPrice', $bill->getTotalPrice());
+        $stmt->bindParam(':customer_id', $bill->getCustomerId());
+        $stmt->execute();
+    }
 }

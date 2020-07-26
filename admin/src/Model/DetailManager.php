@@ -27,4 +27,14 @@ class DetailManager
         }
         return $details;
     }
+
+    public function addDetail($detail)
+    {
+        $sql = 'INSERT INTO `tbl_details`( `bill_id`, `product_id`, `quantity`) VALUES (:bill_id, :product_id, :quantity)';
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':bill_id', $detail->getBillId());
+        $stmt->bindParam(':product_id', $detail->getProductId());
+        $stmt->bindParam(':quantity', $detail->getQuantity());
+        $stmt->execute();
+    }
 }
