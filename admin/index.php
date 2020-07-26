@@ -62,6 +62,9 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : "";
     case 'add-customer':
         $customers->addCustomer();
         break;
+    case 'update-customer':
+        $customers->updateCustomer();
+        break;
     default:
         $products->getAllProduct();
 } ?>

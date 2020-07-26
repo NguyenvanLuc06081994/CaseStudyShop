@@ -37,4 +37,24 @@ class CustomerManager
         $stmt->bindParam(':address', $customer->getAddress());
         $stmt->execute();
     }
+    public function getCustomerId($id)
+    {
+        $sql = "SELECT * FROM tbl_customers WHERE id = :id";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
+    public function updateCustomer($customer)
+    {
+        $sql = "UPDATE `tbl_customers` SET `name`= :name,`phone`= :phone,`email`= :email,`address`= :address WHERE id = :id";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':id', $customer->getId());
+        $stmt->bindParam(':name', $customer->getName());
+        $stmt->bindParam(':email', $customer->getEmail());
+        $stmt->bindParam(':phone', $customer->getPhone());
+        $stmt->bindParam(':address', $customer->getAddress());
+        $stmt->execute();
+    }
 }

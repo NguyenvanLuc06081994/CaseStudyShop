@@ -36,4 +36,23 @@ class CustomerController
             header('location:index.php?page=list-customer');
         }
     }
+
+    public function updateCustomer()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $id = $_REQUEST['id'];
+            $customer = $this->customerController->getCustomerId($id);
+            include("src/View/customer/update.php");
+        } else {
+            $id = $_REQUEST['id'];
+            $name = $_REQUEST['name'];
+            $phone = $_REQUEST['phone'];
+            $email = $_REQUEST['email'];
+            $address = $_REQUEST['address'];
+            $customer = new Customer($name, $phone, $email, $address);
+            $customer->setId($id);
+            $this->customerController->updateCustomer($customer);
+            header("location:index.php?page=list-customer");
+        }
+    }
 }
