@@ -12,7 +12,7 @@
 </form>
 
 <table class="table table-hover">
-
+    <thead class="badge-dark">
     <tr>
         <th>STT</th>
         <th>Ten</th>
@@ -21,6 +21,7 @@
         <th>Dia Chi</th>
         <th colspan="2">Action</th>
     </tr>
+    </thead>
     <?php if (empty($customers)): ?>
         <tr>
             <td>
