@@ -34,4 +34,14 @@ class BillController
             include ('src/View/bill/billDetail.php');
         }
     }
+
+    public function updateBillStatus()
+    {
+        if ($_SERVER['REQUEST_METHOD']=='POST'){
+            $id = $_REQUEST['id'];
+            $status = $_REQUEST['status'];
+            $this->billController->updateBillStatus($id,$status);
+            header('location:index.php?page=list-bill');
+        }
+    }
 }

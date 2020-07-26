@@ -39,4 +39,13 @@ INNER JOIN tbl_customers on tbl_bills.customer_id = tbl_customers.id Where tbl_b
         $stmt->execute();
         return $stmt->fetchAll();
     }
+
+    public function updateBillStatus($id,$status)
+    {
+        $sql = "UPDATE tbl_bills SET status =:status WHERE id =:id";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':status', $status);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+    }
 }
