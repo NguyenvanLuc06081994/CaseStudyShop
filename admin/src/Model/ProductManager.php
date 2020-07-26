@@ -40,4 +40,27 @@ class ProductManager
         $stmt->bindParam(':category_id',$product->getCategoryId());
         $stmt->execute();
     }
+
+    public function getProductId($id)
+    {
+        $sql = "SELECT * FROM `tbl_products` WHERE id = :id";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':id',$id);
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+
+    public function updateProduct($product)
+    {
+        $sql = "UPDATE `tbl_products` SET `img`=:img,`name`=:name,`price`=:price,`quantity`=:quantity,`description`=:description,`category_id`=:category_id WHERE id =:id";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':id',$product->getId());
+        $stmt->bindParam(':img',$product->getImg());
+        $stmt->bindParam(':name',$product->getName());
+        $stmt->bindParam(':price',$product->getPrice());
+        $stmt->bindParam(':quantity',$product->getQuantity());
+        $stmt->bindParam(':description',$product->getDescription());
+        $stmt->bindParam(':category_id',$product->getCategoryId());
+        $stmt->execute();
+    }
 }

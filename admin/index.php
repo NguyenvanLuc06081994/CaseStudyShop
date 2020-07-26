@@ -3,7 +3,7 @@
 use App\Controller\CategoryController;
 use App\Controller\ProductController;
 
-require __DIR__ . "/../vendor/autoload.php";
+require __DIR__ . "/vendor/autoload.php";
 
 $categories = new CategoryController();
 $products = new ProductController();
@@ -25,7 +25,7 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : "";
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<?php include_once('../src/View/menu/navbar.php');?>
+<?php include_once('src/View/menu/navbar.php');?>
 <?php switch ($page) {
     case "list-category":
         $categories->getAllCategory();
@@ -44,6 +44,9 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : "";
         break;
     case 'add-product':
         $products->addProduct();
+        break;
+    case "update-product":
+        $products->updateProduct();
         break;
     default:
         $products->getAllProduct();
