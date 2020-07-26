@@ -28,7 +28,9 @@ $categories = new CategoryController();
 <body>
 <?php
 include_once('front/menu/navbar.php');
-include_once('front/slide/slide.php');
+if (isset($_GET['page']) != 'detail-product') {
+    include_once('front/slide/slide.php');
+}
 ?>
 
 <div id="main-content">
@@ -50,9 +52,6 @@ include_once('front/slide/slide.php');
                         case 'search-product':
                             $id = $_REQUEST['id'];
                             $products->searchProductById($id);
-                            break;
-                        case 'success':
-                            include('front/cart/success.php');
                             break;
                         default:
                             $products->getAllProductFront();

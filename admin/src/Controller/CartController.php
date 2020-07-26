@@ -36,7 +36,6 @@ class CartController
         if (isset($_SESSION['cart'])) {
             $oldCart = unserialize($_SESSION['cart']);
         } else {
-            $_SESSION['cart'] = [];
             $oldCart = $_SESSION['cart'];
         }
         $newCart = new Cart($oldCart);
@@ -75,7 +74,7 @@ class CartController
                 $this->detailManager->addDetail($detail);
             endforeach;
             $_SESSION['cart'] = [];
-            header('location:index.php?page=success');
+            header('location:front/cart/success.php');
         }
     }
 }

@@ -4,7 +4,7 @@
             <div class="info-customer">
 
                 <h4>Contact Information</h4>
-                <form action="" method="post" class="">
+                <form action="index.php?page=cart-detail" method="post" class="">
                     <div class="form-group">
                         <input type="text" name="phone" placeholder="Your Phone" class="form-control" required>
                     </div>
@@ -49,13 +49,13 @@
                     <tr>
                         <td><?php echo $product ['item']['name'] ?></td>
                         <td><img src="admin/<?php echo $product['item']['img'] ?>" alt="" style="width: 75px; height: 75px;"></td>
-                        <td><?php echo $product['item']['price'] ?></td>
+                        <td><?php echo number_format($product['item']['price'])." VND"?></td>
                         <td><?php echo $product['totalQty'] ?></td>
-                        <td><?php echo $product['totalPrice'] ?></td>
+                        <td><?php echo number_format($product['totalPrice'])." VND" ?></td>
                     </tr>
                 <?php endforeach; ?>
             </table>
-            <h3>SubTotal : <?php echo $cartCurrent->totalPrice; ?></h3>
+            <h3>SubTotal : <?php echo number_format($cartCurrent->totalPrice)." VND"; ?></h3>
         </div>
     </div>
 </div>

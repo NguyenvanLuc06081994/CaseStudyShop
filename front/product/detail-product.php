@@ -21,7 +21,7 @@
                 <div class="col-md-6">
                     <h1><?php echo $product['name'] ?></h1> 
                     <p>Giá bán: <?php echo number_format($product['price']) ." VNĐ"; ?></p>
-                    <a href="">Add To Cart</a>
+                    <a href="index.php?page=list-cart&id=<?php echo $product['id']?>">Add To Cart</a>
                 </div>
       
       </div>
