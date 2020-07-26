@@ -48,6 +48,9 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : "";
     case "update-product":
         $products->updateProduct();
         break;
+    case 'delete-product':
+        $products->deleteProduct();
+        break;
     default:
         $products->getAllProduct();
 } ?>

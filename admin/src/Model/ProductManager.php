@@ -63,4 +63,12 @@ class ProductManager
         $stmt->bindParam(':category_id',$product->getCategoryId());
         $stmt->execute();
     }
+
+    public function deleteProduct($id)
+    {
+        $sql = "DELETE FROM `tbl_products` WHERE id =:id";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':id',$id);
+        $stmt->execute();
+    }
 }
