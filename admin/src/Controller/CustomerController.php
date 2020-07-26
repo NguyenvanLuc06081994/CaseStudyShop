@@ -65,4 +65,14 @@ class CustomerController
         }
     }
 
+    public function searchCustomer()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $keyword = $_REQUEST['keyword'];
+            $customers = $this->customerController->searchCustomer($keyword);
+            include('src/View/customer/list.php');
+        }
+
+    }
+
 }

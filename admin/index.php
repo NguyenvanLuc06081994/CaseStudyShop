@@ -68,6 +68,9 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : "";
     case 'delete-customer':
         $customers->deleteCustomer();
         break;
+    case 'search-customer':
+        $customers->searchCustomer();
+        break;
     default:
         $products->getAllProduct();
 } ?>
