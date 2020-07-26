@@ -1,12 +1,14 @@
 <?php
 
 use App\Controller\CategoryController;
+use App\Controller\CustomerController;
 use App\Controller\ProductController;
 
 require __DIR__ . "/vendor/autoload.php";
 
 $categories = new CategoryController();
 $products = new ProductController();
+$customers = new CustomerController();
 
 $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : "";
 ?>
@@ -50,6 +52,12 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : "";
         break;
     case 'delete-product':
         $products->deleteProduct();
+        break;
+    case 'search-product':
+        $products->searchProduct();
+        break;
+    case 'list-customer':
+        $customers->getAllCustomer();
         break;
     default:
         $products->getAllProduct();

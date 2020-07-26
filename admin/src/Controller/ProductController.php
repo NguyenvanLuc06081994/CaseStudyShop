@@ -33,7 +33,7 @@ class ProductController
             include('src/View/product/add.php');
         } else {
             $file = $_FILES['my-file']['tmp_name'];
-            $path = " uploads/" . $_FILES['my-file']['name'];
+            $path = "uploads/" . $_FILES['my-file']['name'];
             if (move_uploaded_file($file, $path)) {
                 echo "Tải tập tin thành công";
             } else {
@@ -84,6 +84,15 @@ class ProductController
             $id = $_REQUEST['id'];
             $this->productController->deleteProduct($id);
             header('location:index.php');
+        }
+    }
+
+    public function searchProduct()
+    {
+        if ($_SERVER['REQUEST_METHOD']=='POST'){
+            $keyword = $_REQUEST['keyword'];
+            $products = $this->productController->searchProduct($keyword);
+            include('src/View/product/list.php');
         }
     }
 }
