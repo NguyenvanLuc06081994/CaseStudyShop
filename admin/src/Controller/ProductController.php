@@ -95,4 +95,25 @@ class ProductController
             include('src/View/product/list.php');
         }
     }
+    public function getAllProductFront()
+    {
+        $products = $this->productController->getAllProduct();
+        $categories = $this->categoryManager->getAllCategory();
+        include_once('front/product/list.php');
+    }
+    public function detailProduct()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == "GET") {
+            $id = $_REQUEST['id'];
+            $product = $this->productController->getProductId($id);
+            include('front/product/detail-product.php');
+        }
+    }
+
+    public function searchProductById($id)
+    {
+        $categories = $this->categoryManager->getAllCategory();
+        $products = $this->productController->searchByCategory($id);
+        include('front/product/listProductByCart.php');
+    }
 }

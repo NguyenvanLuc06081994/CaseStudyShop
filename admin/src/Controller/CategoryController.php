@@ -58,4 +58,9 @@ class CategoryController
             header("location:index.php?page=list-category");
         }
     }
+
+    public function getAll()
+    {
+        return $this->categoryController->getAllCategory();
+    }
 }

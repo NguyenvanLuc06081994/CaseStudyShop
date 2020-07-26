@@ -87,4 +87,20 @@ class ProductManager
         }
         return $products;
     }
+
+    public function searchByCategory($id)
+    {
+        $sql =  'SELECT * from tbl_categories,tbl_products where tbl_categories.id = tbl_products.category_id and tbl_categories.id = :id';
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':id',$id);
+        $stmt->execute();
+        $data = $stmt->fetchAll();
+        $arr = [];
+        foreach ($data as $key => $item) {
+            $product = new Product($item['img'], $item['name'], $item['price'], $item['quantity'], $item['description'],$item['category_id']);
+            $product->setId($item['id']);
+            array_push($arr, $product);
+        }
+        return $arr;
+    }
 }
