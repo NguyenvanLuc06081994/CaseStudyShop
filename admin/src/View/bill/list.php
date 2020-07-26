@@ -1,10 +1,11 @@
-<table class="table table-hover">
-
+<table class="table table-hover mt-3 mb-3">
+    <thead class="badge-info">
     <tr>
         <th>Bill_ID</th>
         <th>Customer Name</th>
         <th>Status</th>
     </tr>
+    </thead>
     <?php if (empty($bills)): ?>
         <tr>
             <td>
