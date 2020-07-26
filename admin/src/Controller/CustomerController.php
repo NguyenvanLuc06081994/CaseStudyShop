@@ -55,4 +55,14 @@ class CustomerController
             header("location:index.php?page=list-customer");
         }
     }
+
+    public function deleteCustomer()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+            $id = $_REQUEST['id'];
+            $this->customerController->deleteCustomer($id);
+            header("location:index.php?page=list-customer");
+        }
+    }
+
 }

@@ -57,4 +57,12 @@ class CustomerManager
         $stmt->bindParam(':address', $customer->getAddress());
         $stmt->execute();
     }
+
+    public function deleteCustomer($id)
+    {
+        $sql = "DELETE FROM `tbl_customers` WHERE id = :id";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+    }
 }
