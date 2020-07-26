@@ -38,7 +38,6 @@ $products = new ProductController();
                                 case 'detail-product':
                                     $products->detailProduct();
                                     break;
-                                
                                 default:
                                     $products->getAllProductFront();
                                     break;

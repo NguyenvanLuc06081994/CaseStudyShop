@@ -1,6 +1,6 @@
 <a href="index.php?page=list-product" class="btn btn-primary mt-3 mb-3">Cancel</a>
 <form action="" method="post" enctype="multipart/form-data" class="form-control mt-3 mb-3" >
-    <input type="file" name="my-file" class="form-group">
+    <input type="file" name="my-file">
     <br>
     <input type="text" name="name" placeholder="Name" class="form-control">
     <br>

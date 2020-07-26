@@ -23,7 +23,7 @@ class CategoryController
     public function addCategory()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-            include('../src/View/category/add.php');
+            include('src/View/category/add.php');
         } else {
             $name = $_REQUEST['name'];
             $country = $_REQUEST['country'];
@@ -38,7 +38,7 @@ class CategoryController
         if ($_SERVER['REQUEST_METHOD']=='GET'){
             $id = $_REQUEST['id'];
             $category = $this->categoryController->getCategoryId($id);
-            include ('../src/View/category/update.php');
+            include ('src/View/category/update.php');
         }else{
             $id = $_REQUEST['id'];
             $name = $_REQUEST['name'];
