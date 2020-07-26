@@ -79,7 +79,9 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : "";
     case 'bill-detail':
         $bills->getBillDetail();
         break;
-
+    case 'update-bill':
+        $bills->updateBillStatus();
+        break;
     default:
         $products->getAllProduct();
 } ?>
