@@ -27,4 +27,17 @@ class ProductManager
         }
         return $products;
     }
+
+    public function addProduct($product)
+    {
+        $sql = "INSERT INTO `tbl_products`(`img`, `name`, `price`, `quantity`, `description`, `category_id`) VALUES (:img, :name, :price,:quantity,:description,:category_id)";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':img',$product->getImg());
+        $stmt->bindParam(':name',$product->getName());
+        $stmt->bindParam(':price',$product->getPrice());
+        $stmt->bindParam(':quantity',$product->getQuantity());
+        $stmt->bindParam(':description',$product->getDescription());
+        $stmt->bindParam(':category_id',$product->getCategoryId());
+        $stmt->execute();
+    }
 }

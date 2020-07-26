@@ -42,6 +42,9 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : "";
     case 'list-product':
         $products->getAllProduct();
         break;
+    case 'add-product':
+        $products->addProduct();
+        break;
     default:
         $products->getAllProduct();
 } ?>
