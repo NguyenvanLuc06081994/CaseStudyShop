@@ -25,10 +25,10 @@
             <td><?php echo ++$key ?></td>
             <td><img src="<?php echo $product->getImg()?>" alt="" style="width: 75px; height: 75px"></td>
             <td><?php echo $product->getName() ?></td>
-            <td><?php echo $product->getPrice()?></td>
+            <td><?php echo number_format($product->getPrice())." VND"?></td>
             <td><?php echo $product->getQuantity() ?></td>
             <td><?php echo $product->getDescription()?></td>
-            <td><?php echo $categories[$product->getCategoryId()-1]->getName()?></td>
+            <td><?php echo $product->getCategoryId()?></td>
             <td><a href="index.php?page=update-product&id=<?php echo $product->getId()?>" class="btn btn-primary">Update</a></td>
             <td><a href="index.php?page=delete-product&id=<?php echo $product->getId()?>" class="btn btn-danger">Delete</a></td>
         </tr>
