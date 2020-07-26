@@ -17,7 +17,7 @@ class CategoryController
     public function getAllCategory()
     {
         $categories = $this->categoryController->getAllCategory();
-        include('../src/View/category/list.php');
+        include('src/View/category/list.php');
     }
 
     public function addCategory()
@@ -29,7 +29,7 @@ class CategoryController
             $country = $_REQUEST['country'];
             $category = new Category($name, $country);
             $this->categoryController->addCategory($category);
-            header('location:index.php');
+            header('location:index.php?page=list-category');
         }
     }
 
@@ -55,7 +55,7 @@ class CategoryController
         if ($_SERVER['REQUEST_METHOD']=='GET'){
             $id = $_REQUEST['id'];
             $this->categoryController->deleteCategory($id);
-            header("location:index.php");
+            header("location:index.php?page=list-category");
         }
     }
 }

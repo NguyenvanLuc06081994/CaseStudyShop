@@ -77,4 +77,13 @@ class ProductController
 
         }
     }
+
+    public function deleteProduct()
+    {
+        if ($_SERVER['REQUEST_METHOD']=='GET'){
+            $id = $_REQUEST['id'];
+            $this->productController->deleteProduct($id);
+            header('location:index.php');
+        }
+    }
 }
