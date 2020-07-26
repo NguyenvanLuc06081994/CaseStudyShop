@@ -24,4 +24,14 @@ class BillController
         $customers = $this->customerManager->getAllCustomer();
         include ('src/View/bill/list.php');
     }
+
+    public function getBillDetail()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'GET'){
+            $id = $_REQUEST['id'];
+            $bills = $this->billController->getAllBill();
+            $billDetails = $this->billController->getBillDetail($id);
+            include ('src/View/bill/billDetail.php');
+        }
+    }
 }

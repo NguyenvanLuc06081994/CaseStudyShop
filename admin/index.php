@@ -76,6 +76,9 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : "";
     case 'list-bill':
         $bills->getAllBill();
         break;
+    case 'bill-detail':
+        $bills->getBillDetail();
+        break;
 
     default:
         $products->getAllProduct();
