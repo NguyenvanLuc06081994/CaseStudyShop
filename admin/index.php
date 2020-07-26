@@ -27,7 +27,7 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : "";
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<?php include_once('src/View/menu/navbar.php');?>
+<?php include_once('src/View/menu/navbar.php'); ?>
 <?php switch ($page) {
     case "list-category":
         $categories->getAllCategory();
@@ -58,6 +58,9 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : "";
         break;
     case 'list-customer':
         $customers->getAllCustomer();
+        break;
+    case 'add-customer':
+        $customers->addCustomer();
         break;
     default:
         $products->getAllProduct();

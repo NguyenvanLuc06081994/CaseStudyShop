@@ -27,4 +27,14 @@ class CustomerManager
         }
         return $customers;
     }
+    public function addCustomer($customer)
+    {
+        $sql = "INSERT INTO `tbl_customers`(`name`, `phone`, `email`, `address`) VALUES (:name, :phone, :email, :address)";
+        $stmt = $this->database->prepare($sql);
+        $stmt->bindParam(':name', $customer->getName());
+        $stmt->bindParam(':phone', $customer->getPhone());
+        $stmt->bindParam(':email', $customer->getEmail());
+        $stmt->bindParam(':address', $customer->getAddress());
+        $stmt->execute();
+    }
 }
