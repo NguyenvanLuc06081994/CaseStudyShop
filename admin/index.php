@@ -1,5 +1,6 @@
 <?php
 
+use App\Controller\BillController;
 use App\Controller\CategoryController;
 use App\Controller\CustomerController;
 use App\Controller\ProductController;
@@ -9,6 +10,7 @@ require __DIR__ . "/vendor/autoload.php";
 $categories = new CategoryController();
 $products = new ProductController();
 $customers = new CustomerController();
+$bills = new BillController();
 
 $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : "";
 ?>
@@ -71,6 +73,10 @@ $page = isset($_REQUEST['page']) ? $_REQUEST['page'] : "";
     case 'search-customer':
         $customers->searchCustomer();
         break;
+    case 'list-bill':
+        $bills->getAllBill();
+        break;
+
     default:
         $products->getAllProduct();
 } ?>
